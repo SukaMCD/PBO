@@ -1,6 +1,7 @@
 // -------------|
 // POLYMORPHISM |
 // -------------|
+console.log("=== Polymorphism ===");
 
 class Burung {
   bersuara() {
@@ -24,9 +25,44 @@ const DaftarBurung = [new Ayam(), new Bebek()];
 
 DaftarBurung.forEach((burung) => burung.bersuara());
 
+// ---------|
+// Abstract |
+// ---------|
+console.log("=== Abstract ===");
+
+class Animal {
+  constructor() {
+    if (new.target === Animal) {
+      throw new Error("Tidak bisa membuat instance dari class abstract");
+    };
+  }
+
+  makeSound() {
+    throw new Error("Method 'makeSound()' harus di override");
+  }
+}
+
+class Dog extends Animal {
+  makeSound() {
+    console.log("Woof Woof");
+  }
+}
+
+class Cat extends Animal {
+  makeSound() {
+    console.log("Meow Meow");
+  }
+}
+
+let d = new Dog();
+console.log(d.makeSound());
+
+// let a = new Animal(); // Error
+
 // -------|
 // STATIC |
 // -------|
+console.log("=== Static ===");
 
 class Matematika {
   static pi = 3.14159;
@@ -41,6 +77,7 @@ console.log(Matematika.luasLingkaran(7));
 // ----------------|
 // GETTER & SETTER |
 // ----------------|
+console.log("=== Getter & Setter ===");
 
 class Mahasiswa {
     #nama;
