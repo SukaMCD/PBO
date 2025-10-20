@@ -1,6 +1,26 @@
-// -------------|
-// POLYMORPHISM |
-// -------------|
+// COMPOSITION
+console.log("=== Composition ===");
+
+class Engine {
+  start() {
+    console.log("Mesin dinyalakan");
+  }
+}
+
+class Car {
+  constructor() {
+    this.engine = new Engine();
+  }
+  drive() {
+    this.engine.start();
+    console.log("Mobil berjalan");
+  }
+}
+
+let car = new Car();
+car.drive();
+
+// POLYMORPHISM
 console.log("=== Polymorphism ===");
 
 class Burung {
@@ -25,10 +45,8 @@ const DaftarBurung = [new Ayam(), new Bebek()];
 
 DaftarBurung.forEach((burung) => burung.bersuara());
 
-// ---------|
-// Abstract |
-// ---------|
-console.log("=== Abstract ===");
+// ABSTRACTION
+console.log("=== Abstraction ===");
 
 class Animal {
   constructor() {
@@ -59,9 +77,7 @@ console.log(d.makeSound());
 
 // let a = new Animal(); // Error
 
-// -------|
-// STATIC |
-// -------|
+// STATIC
 console.log("=== Static ===");
 
 class Matematika {
@@ -74,9 +90,7 @@ class Matematika {
 
 console.log(Matematika.luasLingkaran(7));
 
-// ----------------|
-// GETTER & SETTER |
-// ----------------|
+// GETTER & SETTER
 console.log("=== Getter & Setter ===");
 
 class Mahasiswa {
@@ -105,4 +119,4 @@ console.log(mhs.nama);
 
 mhs.nama = "Li"
 mhs.nama = "Putri"
-console.log(mhs.nama);
+console.log(mhs.nama); 
